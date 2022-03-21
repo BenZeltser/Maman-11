@@ -35,62 +35,62 @@ int scalar_product(int u[], int v[], int size) {
 	/*set u and v as integer arrays that represent the vectors.
 	 * as each array slot represents a coordinate in the vector.
 	 */
-
-	//'ans' will be used as the final output. init to 0.
 	int ans=0;
-	//iterate through the two vectors simultaneously since we assume that size is identical.
-	for (int i=0; i<size; i++) {
+	/*'ans' will be used as the final output. init to 0.
+	iterate through the two vectors simultaneously since we assume that size is identical. */
+	int i;
+	for (i=0; i<size; i++) {
 		printf("coordinate #%d: %d*%d=%d\n", i+1, u[i], v[i], u[i]*v[i]);
-		//'ans' is an accumulating sum
+		/*'ans' is an accumulating sum */
 		ans += (u[i]*v[i]);
 	}
-	//return the scalar product of the two given vectors in the given size.
+	/*return the scalar product of the two given vectors in the given size. */
 	return ans;
 
 }
 
 int main() {
+	int size,input,i, uc, vc, sum;
 	printf("\n'my_scalar' is running...\n");
-	// inform the user about the program that is running
+	vc=uc=sum=0;
+	/* inform the user about the program that is running */
 
-	//get user input for a none dynamic array by identifying the size of the input first.
-	//initiate size to 0 as default
-	int size = 0;
-	int input = 0; // input will be used as a temp
-
-	//init arrays
+	/*get user input for a none dynamic array by identifying the size of the input first.
+	initiate size to 0 as default */
+	size = 0;
+	/* input will be used as a temp.
+	i and j used as indecies of the for loops. */
+	input = 0;
+	/*init arrays */
 	printf("Hello. Please enter number of coordinates of the vectors: \n");
 	scanf("%d", &size);
 	printf("number of coordinates: %d. \n", size);
 
-	//u,v are vectors as elaborated in the first paragraph.
+	/* u,v are vectors as elaborated in the first paragraph.
 	int u[size];
-	int v[size];
+	int v[size]; */
 
-	//get the coordinates of U through a loop
-	for (int i=0;i<size;i++){
-		printf("enter coordinate #%d of vector u: \n", (i+1));
+	/* get the coordinates of U */
+	for (i=0;i<size;i++){
+		printf("enter coordinate #%d of vector U: \n", (i+1));
 		scanf("%d", &input);
-		u[i] = input;
+		/* uc is used to hold the i'th coordinate of vector u */
+		uc = input;
+	/* get the coordinates of V */
+		printf("enter coordinate #%d of vector V: \n", (i+1));
+		/* vc is used to hold the i'th coordinate of vector v */
+		scanf("%d", &input);
+		vc = input;
+		sum = sum + vc*uc;
+		printf("\n");
+
 	}
 
-	printf("***Vector v*** \n");
+	printf(" * * * Result: %d * * * \n", sum);
 
-	//get the coordinates of U through a loop
-	for (int i=0;i<size;i++){
-		printf("enter coordinate #%d of vector v: \n", (i+1));
-		scanf("%d", &input);
-		v[i] = input;
-	}
+	/*return the final result to the user */
 
-	//apply the 'scalar_product function'
-
-	int output = scalar_product(u,v,size);
-
-	printf("* * * Result: %d * * * ", output);
-
-	return output; //return the final result to the user
-
+	return 0;
 }
 
 
