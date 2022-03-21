@@ -31,24 +31,6 @@
  * (0,0,0) * (1,1,1) = 0*1 + 0*1 + 0*1 = 0
  */
 
-int scalar_product(int u[], int v[], int size) {
-	/*set u and v as integer arrays that represent the vectors.
-	 * as each array slot represents a coordinate in the vector.
-	 */
-	int ans=0;
-	/*'ans' will be used as the final output. init to 0.
-	iterate through the two vectors simultaneously since we assume that size is identical. */
-	int i;
-	for (i=0; i<size; i++) {
-		printf("coordinate #%d: %d*%d=%d\n", i+1, u[i], v[i], u[i]*v[i]);
-		/*'ans' is an accumulating sum */
-		ans += (u[i]*v[i]);
-	}
-	/*return the scalar product of the two given vectors in the given size. */
-	return ans;
-
-}
-
 int main() {
 	int size,input,i, uc, vc, sum;
 	printf("\n'my_scalar' is running...\n");
