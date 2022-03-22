@@ -23,35 +23,38 @@
  *
  */
 
-int bit_count(unsigned int u) {
+int bit_count(unsigned long u) {
   /*
-The Idea beheind the function:
-Take the original number n and store in the count variable.
-count=n;
-
-Shift the orignal number 1 bit to the right and subtract from the orignal.
-count = n - (n >>1);
-
-Now Shift the original number 2 bits to the right and subtract from count;
-count = n - (n>>1) - (n>>2);
+   *The Idea behind the function:
+   *Take the original number n and store in the count variable.
+   *count=n. then we will
+   *Shift the original number 1 bit to the right and subtract from the orignal.
+   *count = n - (n >>1).Now Shift the original number 2 bits to the right and subtract from count;
+   *count = n - (n>>1) - (n>>2);
 
 Keep doing this until you reach the end.
 count = n - (n>>1) - (n>>2) - ... -( n>>31);
 
 */
-
-    unsigned int uCount;
-    uCount = u - ((u >> 1) & 033333333333) - ((u >> 2) & 011111111111);
-    return ((uCount + (uCount >> 3)) & 030707070707) % 63;
-
+    unsigned int Count;
+    Count = u - ((u >> 1) & 033333333333) - ((u >> 2) & 011111111111);
+    return ((Count + (Count >> 3)) & 030707070707) % 63;
 }
 
 int main() {
-	long unsigned x = 7;
-	long unsigned y = 1;
-	int ans;
-	ans = bit_count(x);
-	printf("# of bits in %lu: %d",x,ans);
-	return 0;
+	long unsigned x,y;
+	int answer,temp;
+	printf("'find_bits' is running... \n");
+	/*get the user input */
+	printf("Hello. please enter the first number: \n");
+	scanf("%lu",&x);
+	printf("please enter the second number: \n");
+	scanf("%lu",&y);
+	/*Now we will perform the 'AND' operator on x and y
+	 *and then we will use the function bit_counts to count bits */
+	temp = x & y;
+	answer = bit_count(temp);
+	printf("number of mutual switched on bits: %d \n", answer);
+	return answer;
 }
 
