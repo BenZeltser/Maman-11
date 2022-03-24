@@ -1,0 +1,14 @@
+
+'my_scalar' is running...
+Hello. Please enter number of coordinates of the vectors: 
+number of coordinates: 3. 
+enter coordinate #1 of vector U: 
+enter coordinate #1 of vector V: 
+
+enter coordinate #2 of vector U: 
+enter coordinate #2 of vector V: 
+
+enter coordinate #3 of vector U: 
+enter coordinate #3 of vector V: 
+
+ * * * Result: 0 * * * 
